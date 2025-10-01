@@ -1,15 +1,23 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        var s1 = new MessageSubscriber1();
+        var s2 = new MessageSubscriber2();
+        var s3 = new MessageSubscriber3();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        var p = new MessagePublisher();
+
+        p.addObserver(s1);
+        p.addObserver(s2);
+        p.notifyObservers(new Message("Premier message"));
+
+        p.removeObserver(s1);
+        p.addObserver(s3);
+        p.notifyObservers(new Message("Deuxieme message"));
+
     }
 }

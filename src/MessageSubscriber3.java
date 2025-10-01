@@ -1,6 +1,6 @@
-public class MessageSubscriber1 implements Observer {
+public class MessageSubscriber3 implements Observer {
     @Override
     public void update(Message message) {
-        System.out.println("Message received: " + message.getMessageContent());
+        System.out.println("O3 :: Message received: " + message.getMessageContent());
     }
 }
